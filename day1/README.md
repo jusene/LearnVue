@@ -12,3 +12,6 @@ Model View ViewModel
     - 类型: {[key: string]: function}
     - 作用: 定义属于vue的一些方法，可以在其他地方调用，也可以在指令中使用
 
+## Vue的生命周期
+
+![](https://github.com/jusene/LearnVue/blob/master/day1/img/lifecycle.png)
