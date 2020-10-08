@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue01</title>
+        <style>
+            .col {
+                color: red;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+            <li v-for="(m, index) in movies" @click="moClick(index)" :class="{col:index===current}">{{m}}</li>
+            </ul>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app', 
+                data: { 
+                    movies: ['海贼王', '火影忍者', '海王', '复仇者'],
+                    current: -1
+                },
+                methods: {
+                    moClick: function(index) {
+                        this.current = index
+                    },
+                
+                }
+            })
+        </script>
+    </body>
+</html>

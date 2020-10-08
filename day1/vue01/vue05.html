@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>动态绑定属性</title>
+        <style>
+            .active {
+                color: red;
+            }
+            .line {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <h1 :class="active">{{message}}</h1>
+            <h2 class="title" :class="{active: isActive, line: isLine}">{{message}}</h2>
+            <h2 class="title" :class="getClasses()">{{message}}</h2>
+            <h2 class="title" :class="['active', line]">{{message}}</h2>
+            <button @click="btnClick">按钮</button>
+            <img v-bind:src="imageUrl" alt="not found">
+            <a :href="Baidu" target="_blank">Baidu</a>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script> 
+            const app = new Vue({
+                el: '#app', 
+                data: {
+                    message: "你好，vue.js",
+                    imageUrl: "https://m.360buyimg.com/babel/jfs/t1/141031/35/9657/315446/5f71d25aEe75874ac/c5a12a84ae6027e3.png",
+                    Baidu: "https://www.baidu.com",
+                    active: 'active',
+                    isActive: false,
+                    isLine: true,
+                    line: 'line'
+                },
+                methods: {
+                    btnClick: function () {
+                        this.isActive = !this.isActive
+                        this.isLine = !this.isLine
+                    },
+                    getClasses: function() {
+                        return {active: this.isActive, line: this.isLine}
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

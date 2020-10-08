@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>vue03</title>
+    </head>
+    <body>
+        <!--
+        <div id="app">
+           <p>计数器: {{counter}}</p>
+           <button v-on:click="counter++">增加</button>
+           <button v-on:click="counter--">减少</button>
+        </div>
+    -->
+    <div id="app">
+        <p>计数器: {{counter}}</p>
+        <button @click="add">增加</button>
+        <button @click="sub">减少</button>
+     </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    counter: 0
+                },
+                methods: {
+                    add: function() {
+                        this.counter++
+                        console.log("增加了")
+                    },
+                    sub: function() {
+                        this.counter--
+                        console.log("减少了")
+                    }
+                },
+                beforeCreate: function() {
+                    console.log("beforecreate")
+                },
+                created: function() {
+                    console.log("created")
+                },
+                mounted: function() {
+                    console.log("mounted")
+                }
+            })
+        </script>
+    </body>
+</html>

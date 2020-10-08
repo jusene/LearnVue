@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>插值操作</title>
+        <style>
+            [v-cloak] {
+            display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            在vue解析之前，div中有一个属性v-cloak
+            在vue解析之后，div中没有一个属性v-cloak
+        -->
+        <div id="app" v-cloak>
+            <h1>{{message}}</h1>
+            <!--只渲染一次-->
+            <h1 v-once>{{message}}</h1>
+            <!--解析html标签-->
+            <h2>{{url}}</h2>
+            <h2 v-html="url"></h2>
+            <!--不常用，会覆盖-->
+            <h2 v-text="message">, hello</h2>
+            <!--原封不动的显示-->
+            <h2 v-pre>{{message}}</h2>
+            <!---->
+            <h2></h2>
+            <h2>{{firstname + ' ' + lastname}}</h2>
+            <h2>{{counter * 2}}</h2>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app', 
+                data: { 
+                    message: "你好，vue.js",
+                    firstname: "zhang",
+                    lastname: "jusene",
+                    counter: 100,
+                    url: '<a href="https://www.baidu.com">百度一下</a>',
+
+                }
+            })
+        </script>
+    </body>
+</html>
