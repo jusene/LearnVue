@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>动态绑定style</title>
+    </head>
+    <body>
+        <div id="app">
+            <!--<h1 :style="key(属性名): value(属性值)}">{{message}}</h1>-->
+            <!--50px必须加上单引号，否则当做一个变量-->
+            <h1 :style="{fontSize: '50px'}">{{message}}</h1>
+            <h1 :style="{fontSize: finalSize+'px', color: finalColor}">{{message}}</h1>
+            <h2 :style="getStyle()">{{message}}</h2>
+            <h3 :style="[baseStyle, baseStyle1]">{{message}}</h3>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    finalSize: 100,
+                    finalColor: 'red',
+                    baseStyle: {backgroundColor: 'red'},
+                    baseStyle1: {fontSize: '50px'}
+                },
+                methods: {
+                    getStyle: function() {
+                        return {fontSize: this.finalSize+'px', color: this.finalColor}
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
