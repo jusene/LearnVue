@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>事件监听</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{counter}}</h1>
+            <button @click=incre>+</button>
+            <button @click=decre>-</button>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    counter: 0
+                },
+                methods: {
+                    incre() {
+                        this.counter++
+                    },
+                    decre() {
+                        this.counter--
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

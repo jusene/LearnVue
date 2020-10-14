@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>事件监听</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{counter}}</h1>
+            <!--在事件定义时，写方法时省略了小括号，但是方法本身是需要一个参数的，这个时候vue会默认将浏览器产生的event事件对象作为参数传入到方法-->
+            <button @click="incre">+</button>
+            <button @click="decre(2)">-</button>
+
+            <!--方法定义时，需要event对象，同时又需要其他参数-->
+            <button @click="button1('abc', $event)">按钮</button>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    counter: 0
+                },
+                methods: {
+                    incre(event) {
+                        console.log(event)
+                        this.counter++
+                    },
+                    decre(value) {
+                        console.log(value)
+                        this.counter--
+                    },
+                    button1(value, event) {
+                        console.log(value, event)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

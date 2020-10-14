@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>计算属性缓存和method比较</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{message}} {{name}}</h1>
+            <h2>{{getFullname()}}</h2>
+            <h2>{{getFullname()}}</h2>
+            <h2>{{getFullname()}}</h2>
+            <h2>{{fullName}}</h2>
+            <h2>{{fullName}}</h2>
+            <h2>{{fullName}}</h2>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    name: "jusene"
+                },
+                methods: {
+                    getFullname: function() {
+                        console.log("method")
+                        return this.message + ' ' + this.name
+                    }
+                },
+                computed: {
+                    fullName: function() {
+                        console.log("computed")
+                        return this.message + ' ' + this.name
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
