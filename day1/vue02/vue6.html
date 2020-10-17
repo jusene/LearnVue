@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>小案例</title>
+    </head>
+    <body>
+        <div id="app">
+            <span v-if="isUser">
+                <label for="username">用户</label>
+                <input type="text" id="username" placeholder="用户" key="username" required><br>
+            </span>
+            <span v-else>
+                <label for="email">邮箱</label>
+                <input type="email" id="email" placeholder="邮箱" key="email" required><br>
+            </span>
+            <label for="password">密码</label>
+            <input type="password" id="password" placeholder="密码" key="password" required><br>
+            <button @click="isUser = !isUser">切换类型</button>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    isUser: true
+                }
+            })
+        </script>
+    </body>
+</html>

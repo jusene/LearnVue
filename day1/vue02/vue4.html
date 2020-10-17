@@ -6,9 +6,22 @@
     </head>
     <body>
         <div id="app">
-            <h1>{{counter}}</h1>
-            <button @click=incre>+</button>
-            <button @click=decre>-</button>
+            <!--.stop修饰符的使用 停止冒泡-->
+            <div @click="divClick">
+                <input type="text" value="test"><br>
+                <button @click.stop="btnClick">按钮</button>     
+            </div>
+
+            <!--.prevent修饰符的使用 阻止默认行为-->
+            <form action="index.html" method="GET">
+                <input type="submit" value="提交" @click.prevent="submitClick">
+            </form>
+
+            <!--监听某个键盘的键帽 键别名-->
+            <input type="text" @keyup.enter="keyUp">
+
+            <!--.once修饰符 只能使用一次-->
+            <button @click.once="btnClick">按钮once</button>
         </div>
 
         <script src="../js/vue.js"></script>
@@ -20,11 +33,17 @@
                     counter: 0
                 },
                 methods: {
-                    incre() {
-                        this.counter++
+                    btnClick() {
+                        console.log("btnClick");
                     },
-                    decre() {
-                        this.counter--
+                    divClick() {
+                        console.log("divClick");
+                    },
+                    submitClick() {
+                        console.log("submitClick");
+                    },
+                    keyUp() {
+                        console.log("keyUp")
                     }
                 }
             })

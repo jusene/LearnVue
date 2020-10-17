@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>条件判断</title>
+    </head>
+    <body>
+        <div id="app">
+           <h1 v-if="name === 'jusene'">{{message}}</h1>
+           <h1 v-if="isShow">{{message}}</h1>
+           <h1 v-else>{{name}}</h1>
+        
+           <h2 v-if="score>=90">优秀</h2>
+           <h2 v-else-if="score>=80">良好</h2>
+           <h2 v-else-if="score>=60">及格</h2>
+           <h2 v-else>不及格</h2>
+
+           <h1>{{result}}<h2>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    name: "jusene",
+                    isShow: true,
+                    score: 89
+                },
+                computed: {
+                    result() {
+                        let showMsg = '';
+                        if (this.score >= 90) {
+                            showMsg = '优秀'
+                        } else if (this.score >= 80) {
+                            showMsg = '良好'
+                        }
+                        // ...
+                        return showMsg
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
