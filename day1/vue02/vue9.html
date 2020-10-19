@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数组响应式</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in names">{{index}}{{item}}</li>
+        </ul>
+        <button @click="btnClick">按钮</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        // let(变量)/const(常量)
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            data: { // 定于数据
+                names: ["why", "me", "not", "you"],
+            },
+            methods: {
+                btnClick() {
+                    // push方法
+                    // this.names.push("aaaa");
+                    // this.names.push("aaaa", "bbbb", "cccc")
+
+                    // splice方法 删除元素/插入元素/替换元素
+                    // 删除 this.names.splice(2, 1)
+                    // this.names.splice(2, 0, "2121");
+                
+                    // 通过索引修改数组中的元素 不是响应式的
+                    // this.names[0] = "bbbb";
+
+                    // pop() 删除数组最后一个元素
+                    // shift() 删除数组的第一个元素
+                    // unshift() 在数组最前面添加元素,可多个
+                    // sort()
+                    // reverse()
+
+                     Vue.set(this.names, 0, '21212')
+                }
+            }   
+        })
+    </script>
+</body>
+
+</html>
