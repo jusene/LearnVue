@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>函数式编程</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{newNums}}</h1>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    name: "jusene"
+                },
+                computed: {
+                    newNums() {
+                        const nums = [10, 20, 30, 40, 50]
+                        // filter中的回调函数有一个要求，函数必须为布尔
+                        /*
+                        let newN = nums.filter(function(n) {
+                            return n > 30
+                        })
+                        
+                        newN.map(function(n) {
+                            return n * 2
+                        })
+
+                        let result = newN.reduce(function(preValue, n) {
+                            return preValue + n 
+                        }, 0)
+                        */
+
+                        let result = nums.filter(n => n > 30).map(n => n * 2).reduce((pre, n) => pre + n);
+                        return result
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

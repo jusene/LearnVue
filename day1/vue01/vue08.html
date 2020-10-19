@@ -58,10 +58,14 @@
                         return result
                         */
 
+                        /*
                         for (let book of this.books) {
                             result += book.price
                         }
-                        return result
+                        */
+                        return this.books.reduce(function(preValue, book) {
+                            return preValue + book.price
+                        }, 0)
                     }
                 }
             })

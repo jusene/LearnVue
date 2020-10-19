@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>checkbox checkbox select</title>
+    </head>
+    <body>
+        <div id="app">
+            <label for="lice">
+                <input type="checkbox" id="lice" v-model="isAgree">同意协议
+            </label>
+            <label for="text">
+                <input type="checkbox" id="text" v-model="isOk">隐私申明
+            </label>
+            <h1>{{isAgree}}</h1>
+            <h1>{{isOk}}</h1>
+
+            <input type="checkbox" value="篮球" v-model="hobby">篮球
+            <input type="checkbox" value="足球" v-model="hobby">足球
+            <input type="checkbox" value="乒乓球" v-model="hobby">乒乓球
+            <input type="checkbox" value="排球" v-model="hobby">排球
+            <p>{{hobby}}</p>
+
+            <select name="fruit" v-model="fruit">
+                <option value="苹果">苹果</option>
+                <option value="梨子">梨子</option>
+                <option value="火龙果">火龙果</option>
+            </select>
+
+            <p>{{fruit}}</p>
+
+            <select name="fruit" v-model="fruits" multiple>
+                <option value="苹果">苹果</option>
+                <option value="梨子">梨子</option>
+                <option value="火龙果">火龙果</option>
+            </select>
+
+            <p>{{fruits}}</p>
+
+            <label v-for="item in hobbies" :for="item">
+                <input type="checkbox" :value="item" :id="item" v-model="hobby">{{item}}
+            </label>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    isAgree: false,
+                    isOk: false,
+                    hobby: [],
+                    fruit: "苹果",
+                    fruits: [],
+                    hobbies: ['篮球', '羽毛球', '乒乓球', '排球', '足球']
+                }
+            })
+        </script>
+    </body>
+</html>

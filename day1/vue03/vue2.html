@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>v-model使用</title>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="message">{{message}}
+            <input type="range" v-model="count">{{count}}
+            <input type="text" :value="message" @input="valueChange">{{message}}
+            <input type="text" :value="message" @input="message = $event.target.value">{{message}}
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            // let(变量)/const(常量)
+            const app = new Vue({
+                el: '#app', // 用于挂载要管理的元素
+                data: { // 定于数据
+                    message: "你好，vue.js",
+                    name: "jusene",
+                    count: 10
+                },
+                methods: {
+                    valueChange(event) {
+                        this.message = event.target.value;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
