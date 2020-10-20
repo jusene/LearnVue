@@ -2,17 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>组件之间的通信</title>
+        <title>父组件传递子组件</title>
     </head>
     <body>
         <div id="app">
-            <cpn :cmovies="movies" :cmessage="message"></cpn>
+            <!--变量驼峰写法-->
+            <cpn :c-Movies="movies" :cmessage="message"></cpn>
         </div>
 
         <template id='movie'>
             <div>
             <h1>{{cmessage}}</h1>
-            <ul v-for="item in cmovies">
+            <ul v-for="item in cMovies">
                 <li>{{item}}</li>
             </ul>
             </div>
@@ -26,7 +27,7 @@
                 template: "#movie",
                 // props: ['cmovies', 'cmessage']
                 props: {
-                    cmovies: {
+                    cMovies: {
                         type: Array,
                         default() {
                             return []
@@ -67,7 +68,7 @@
                     template: "#movie",
                     // props: ['cmovies', 'cmessage']
                     props: {
-                    cmovies: {
+                    cMovies: {
                         type: Array,
                         default() {
                             return []
