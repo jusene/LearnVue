@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>父子访问</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn ref="aaaa"></cpn>
+        <cpn></cpn>
+        <button @click="btnClick">按钮</button>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h2>我是标题</h2>
+            <p>我是内容，哈哈哈</p>
+            <button @click="btnClick">子按钮</button>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+
+        // let(变量)/const(常量)
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            data: {
+                name: "我是父组件"
+            },
+            methods: {
+                btnClick() {
+                    console.log(this.$children);
+                    this.$children[0].showMsg();
+                    console.log(this.$children[0].name);
+
+                    // 默认是空的，自由添加属性ref才能访问
+                    console.log(this.$refs.aaaa.name)
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    data() {
+                        return {
+                            name: "我是子组件"
+                        }
+                    },
+                    methods: {
+                        showMsg() {
+                            console.log('showMessage')
+                        },
+                        btnClick() {
+                            console.log(this.$parent.name)
+
+                            // 访问根组件
+                            console.log(this.$root.name)
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
