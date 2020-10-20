@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>组件小案例</title>
+    </head>
+    <body>
+        <div id="app">
+            <calc></calc>
+            <calc></calc>
+        </div>
+
+        <template id="calc">
+            <div>
+                <h2>当前计数: {{counter}}</h2>
+                <button @click="increment">+</button>
+                <button @click="decrement" :disabled="counter <= 0">-</button>
+            </div>
+        </template>
+        
+        <script src="../js/vue.js"></script>
+        <script>
+            // 创建组件构造器
+            // 注册组件
+            // 全局组件语法糖
+            Vue.component('calc', {
+                template: '#calc',
+                data() {
+                    return {
+                        counter: 0
+                    }
+                },
+                methods: {
+                    increment() {
+                        this.counter++
+                    },
+                    decrement() {
+                        this.counter--
+                    }
+                }
+            })
+
+            // 局部组件语法糖
+            const app = new Vue({
+                el: '#app'
+            })
+        </script>
+    </body>
+</html>
