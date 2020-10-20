@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>slot插槽</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <!--获取子组件的数据-->
+            <template slot-scope="slot">
+                <span v-for="item in slot.data">{{item}}-</span>
+            </template>
+        </cpn>
+        <cpn>
+            <template slot-scope="slot">
+                <span>{{slot.data.join(" - ")}}-</span>
+            </template>
+        </cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <slot :data="planguage">
+                <ul v-for="item in planguage">
+                    <li>{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        // let(变量)/const(常量)
+        const app = new Vue({
+            el: '#app', // 用于挂载要管理的元素
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            planguage: ["python", "javascript", "java", "golang"]
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
