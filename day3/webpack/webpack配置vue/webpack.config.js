@@ -1,11 +1,14 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: 'dist/',
+    //publicPath: 'dist/',
   },
   module: {
     rules: [
@@ -55,8 +58,21 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.vue', '.css'],
     alias: {
       "vue$": "vue/dist/vue.esm.js"
     }
+  },
+  plugins: [
+    new webpack.BannerPlugin('版权归jusene所有'),
+    new HtmlWebpackPlugin({
+      template: "index.html"
+    }),
+    new UglifyJsPlugin()
+  ],
+  devServer: {
+    contentBase: './dist',
+    inline: true,
+    //port: 80
   }
 }

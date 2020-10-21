@@ -22,3 +22,5 @@ new Vue ({
         App
     }
 })
+
+document.writeln("<h1>dev server</h1>")
