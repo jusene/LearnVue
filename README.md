@@ -1,24 +1,19 @@
-## 模块化开发
+## vuecli
 
-## webpack
+### 安装Vue脚手架
 
-webpack是一个现代的javascript应用的模块化打包工具
-
+vue3脚手架
 ```
-npm install webpack@3.6.0 -g
-webpack .\src\main.js .\dist\bundle.js
+npm install -g @vue/cli
 ```
 
+拉取2.0模板（旧版本）
 ```
-npm install webpack@3.6.0 --save-dev
-```
-
-## loader
-
-```
-npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+npm install -g @vue/cli-init
 ```
 
-```
-npm install vue-loader vue-template-compiler --save-dev
-```
+vue cli2初始化项目
+- vue init webpack my-project
+
+vue cli3初始化项目
+- vue create my-project
