@@ -1,23 +1,44 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+<div id="app">
+  <!--
+  <router-link to="/hello" tag="button" replace active-class="active">hello</router-link>
+  <router-link to="/about" tag="button" replace active-class="active">about</router-link>
+  -->
+  <!--
+  <router-link to="/hello" tag="button" replace>hello</router-link>
+  <router-link to="/about" tag="button" replace>about</router-link>
+  -->
+  <button @click="btnClick" value="hello" :class="{active: currentValue === 'hello'}">hello</button>
+  <button @click="btnClick" value="about" :class="{active: currentValue === 'about'}">about</button>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      currentValue: 'hello'
+    }
+  },
+  methods: {
+    btnClick() {
+      //this.$router.push('/'+event.target.value)
+      this.currentValue = event.target.value
+      this.$router.replace('/'+event.target.value)
+      console.log(event.target.value)
+    }
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/*.router-link-active {
+  color: red;
+}*/
+
+.active {
+  color: red;
 }
 </style>

@@ -1,9 +1,12 @@
 <template>
-    <h1>{{name}}</h1>
+  <div>
+    <h2>{{name}}</h2>
+  </div>
 </template>
 
 <script>
 export default {
+    name: 'AboutMe',
     data() {
         return {
             name: 'jusene'
@@ -13,8 +16,5 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    font-size: 50px;
-    font-family: 'Courier New', Courier, monospace;
-}
+
 </style>

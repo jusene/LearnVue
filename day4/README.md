@@ -23,3 +23,4 @@ vue cli3初始化项目
 
 > runtime-only(v2)(1.性能更少 2.性能更强)
 - render -> vdom -> UI
+
