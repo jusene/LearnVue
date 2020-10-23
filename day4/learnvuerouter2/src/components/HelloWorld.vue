@@ -1,6 +1,9 @@
 <template>
   <div>
     <h2>{{msg}}</h2>
+    <router-link to="/hello/news" replace>news</router-link>
+    <router-link to="/hello/msg" replace>msg</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -19,6 +22,8 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
+  font-size: 50px;
+  color: #42b983;
 }
 ul {
   list-style-type: none;

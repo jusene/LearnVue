@@ -1,22 +1,20 @@
 <template>
-  <div>
-    <h2>{{name}}</h2>
-  </div>
+    <div>
+        <h2>{{news}}</h2>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'AboutMe',
+    name: 'UserNews',
     data() {
         return {
-            name: 'jusene'
+            news: 'usernew'
         }
-    }
+    }    
 }
 </script>
 
 <style scoped>
-h2 {
-  color: blueviolet;
-}
+
 </style>

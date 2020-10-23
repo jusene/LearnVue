@@ -10,6 +10,9 @@
   -->
   <button @click="btnClick" value="hello" :class="{active: currentValue === 'hello'}">hello</button>
   <button @click="btnClick" value="about" :class="{active: currentValue === 'about'}">about</button>
+  <!--<router-link :to="{path: '/profile', query: {name: 'jusene', age: 21}}" tag="button" replace active-class="active">profile</router-link>-->
+  <button @click="proClick" value="profile" :class="{active: currentValue === 'profile'}">profile</button>
+  <button @click="btnClick" :value="'user/'+userId" :class="{active: currentValue === 'user/'+userId}">user</button>
   <router-view></router-view>
 </div>
 </template>
@@ -19,7 +22,8 @@ export default {
   name: 'App',
   data() {
     return {
-      currentValue: 'hello'
+      currentValue: 'hello',
+      userId: 'jusene'
     }
   },
   methods: {
@@ -27,6 +31,17 @@ export default {
       //this.$router.push('/'+event.target.value)
       this.currentValue = event.target.value
       this.$router.replace('/'+event.target.value)
+      console.log(event.target.value)
+    },
+    proClick() {
+      this.currentValue = event.target.value
+      this.$router.replace({
+        path: '/'+event.target.value,
+        query: {
+          name: 'jusene',
+          age: 23
+        }
+      })
       console.log(event.target.value)
     }
   }
@@ -40,5 +55,15 @@ export default {
 
 .active {
   color: red;
+  background: chartreuse;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
