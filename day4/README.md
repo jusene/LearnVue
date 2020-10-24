@@ -24,3 +24,6 @@ vue cli3初始化项目
 > runtime-only(v2)(1.性能更少 2.性能更强)
 - render -> vdom -> UI
 
+- 全局守卫
+- 路由独享守卫
+- 组件内的守卫

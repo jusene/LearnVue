@@ -13,7 +13,9 @@
   <!--<router-link :to="{path: '/profile', query: {name: 'jusene', age: 21}}" tag="button" replace active-class="active">profile</router-link>-->
   <button @click="proClick" value="profile" :class="{active: currentValue === 'profile'}">profile</button>
   <button @click="btnClick" :value="'user/'+userId" :class="{active: currentValue === 'user/'+userId}">user</button>
+  <keep-alive exclude="Profile,User">
   <router-view></router-view>
+  </keep-alive>
 </div>
 </template>
 

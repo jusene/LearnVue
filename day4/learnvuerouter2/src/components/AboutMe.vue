@@ -11,7 +11,11 @@ export default {
         return {
             name: 'jusene'
         }
-    }
+    },
+    created() {
+    console.log('created')
+    // document.title = 'about'
+  },
 }
 </script>
 
