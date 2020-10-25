@@ -14,6 +14,7 @@
             // }, 1000)
             
             // 参数 -> 函数
+            /*
             new Promise((resolve, reject) => {
                 setTimeout(() => {
                     // 第一次网络处理
@@ -41,7 +42,69 @@
                     // 第三次网络处理代码
                     console.log("hello golang")
                 })
+                */
 
+                // 异步操作的时候，需要使用promise
+                /*
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        //resolve('Hello World')
+                        reject('error message')
+                    }, 1000)
+                }).then((data) => {
+                    console.log(data)
+                }).catch(err => {
+                    console.log(err)
+                })
+                */
+
+                /*
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve('aaaa')
+                    }, 1000)
+                }).then(res => {
+                    console.log(res, "第一次")
+                    return Promise.resolve(res+'1111')
+                    // return Promise.reject('err message')
+                }).then(res => {
+                    console.log(res, "第二次")
+                })
+                */
+
+                Promise.all([
+                /*    
+                new Promise((resolve, reject) => {
+                    
+                        $ajax({
+                            url: '',
+                            success: function(data) {
+                                resolve(data)
+                            }
+                        })
+                    }),
+                    new Promise((resolve, reject) => {
+                        $ajax({
+                            url: '',
+                            success: function(data) {
+                                resolve(data)
+                            }
+                        })
+                    })
+                    */
+                   new Promise((resolve, reject) => {
+                       setTimeout(() => {
+                           resolve({name: 'jusene'})
+                       }, 2000)
+                   }),
+                   new Promise((resolve, reject) => {
+                       setTimeout(() => {
+                           resolve({name: 'zgx'})
+                       })
+                   }, 1000)
+                ]).then(result => {
+                    console.log(result)
+                })
         </script>
     </body>
 </html>
