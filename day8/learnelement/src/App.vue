@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <el-row>
-      <el-button @click="btnClick">默认按钮</el-button>
-      <el-button type="primary">主要按钮</el-button>
-    </el-row>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,14 +8,6 @@
 
 export default {
   name: 'App',
-  methods: {
-    btnClick() {
-      this.$message({
-        type: 'warning',    
-        message: "消息"
-        })
-    }
-  }
 }
 </script>
 
