@@ -13,7 +13,8 @@
     <body>
         <div id="app">
             <ul>
-            <li v-for="(m, index) in movies" @click="moClick(index)" :class="{col: index===current}">{{m}}</li>
+                <!--获取索引，传递索引给事件以获取掉目前点击在第几个无序列表项-->
+            <li v-for="(m, index) in movies" @click="moClick(index)" :class="{col: index===current}">{{m}} {{index}}</li>
             </ul>
         </div>
 

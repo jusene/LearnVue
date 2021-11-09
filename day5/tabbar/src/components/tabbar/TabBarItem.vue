@@ -18,6 +18,7 @@ export default {
     }, 
     computed: {
         isActive() {
+            // 如果在这个path返回真
             return this.$route.path.indexOf(this.path) !== -1
         },
         activeStyle() {

@@ -83,6 +83,7 @@ const router = new Router({
 // 前置钩子
 router.beforeEach((to, from, next) => {
   // 从from跳转到to
+  console.log(to)
   document.title = to.matched[0].meta.title;
   next();
 })

@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="(item, index) in names">{{index}}{{item}}</li>
+            <li v-for="(item, index) in names" :key="item">{{index}}{{item}}</li>
         </ul>
         <button @click="btnClick">按钮</button>
     </div>

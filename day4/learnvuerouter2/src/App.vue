@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     btnClick() {
+      this.test() 
       //this.$router.push('/'+event.target.value)
       this.currentValue = event.target.value
       this.$router.replace('/'+event.target.value)
@@ -40,7 +41,7 @@ export default {
       this.$router.replace({
         path: '/'+event.target.value,
         query: {
-          name: 'jusene',
+          name: 'jusene', 
           age: 23
         }
       })

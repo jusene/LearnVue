@@ -15,11 +15,16 @@
     </head>
     <body>
         <div id="app">
+            <!--未加引号是变量-->
             <h1 :class="active">{{message}}</h1>
-            <h2 class="title" :class="{active: isActive, line: isLine}">{{message}}</h2>
-            <h2 class="title" :class="getClasses()">{{message}}</h2>
-            <h2 class="title" :class="['active', line]">{{message}}</h2>
+            <!--对象语法-->
+            <h2 :class="{active: isActive, line: isLine}">{{message}}</h2>
+            <h2 :class="getClasses()">{{message}}</h2>
+            <!--数组语法 不加引号是变量-->
+            <h2 :class="['active', line]">{{message}}</h2>
             <button @click="btnClick">按钮</button>
+            
+            <!--绑定url-->
             <img v-bind:src="imageUrl" alt="not found">
             <a :href="Baidu" target="_blank">Baidu</a>
         </div>
@@ -35,7 +40,7 @@
                     active: 'active',
                     isActive: false,
                     isLine: true,
-                    line: 'line'
+                    line: 'bbbb'
                 },
                 methods: {
                     btnClick: function () {

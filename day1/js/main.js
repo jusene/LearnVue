@@ -48,11 +48,14 @@ const app = new Vue({
     },
     computed: {
         total() {
-            let result = 0;
-            for (let book of this.books) {
-                result += book.price * book.count
-            }
-            return result
+            //let result = 0;
+            //for (let book of this.books) {
+            //    result += book.price * book.count
+            //}
+            //return result
+            return this.books.reduce(function(pre, book) {
+                return pre + book.price * book.count
+            }, 0)
         },
     },
     filters: {

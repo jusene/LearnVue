@@ -11,6 +11,7 @@
     <div id="app">
         <div v-if="books.length">
         <table>
+            <thread>
             <tr>
                 <th></th>
                 <th>书籍名称</th>
@@ -19,6 +20,8 @@
                 <th>购买数量</th>
                 <th>操作</th>
             </tr>
+            </thread>
+            <tbody>
             <tr v-for="(item, index) in books">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
@@ -31,6 +34,7 @@
                 </td>
                 <td><button @click="removeHandle(index)">移除</button></td>
             </tr>
+            </tbody>
             <tfoot>
                 <td>总价</td>
                 <td :colspan="colLength()">{{total | showPrice}}</td>

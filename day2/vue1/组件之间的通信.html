@@ -23,26 +23,7 @@
         <script src="../js/vue.js"></script>
         <script>
             // 父传子
-            const cpnc2 = Vue.extend({
-                template: "#movie",
-                // props: ['cmovies', 'cmessage']
-                props: {
-                    cMovies: {
-                        type: Array,
-                        default() {
-                            return []
-                        }
-                    }, 
-                    cmessage: {
-                        type: String,
-                        default: "hello",
-                        required: true,
-                        //validator(value) {
-                         //   return ["hello"].indexOf(value) != -1
-                        //}
-                    }
-                },
-            })
+            
             /*
             验证类型
             String
@@ -79,7 +60,7 @@
                         default: "hello",
                         required: true,
                         //validator(value) {
-                         //   return ["hello"].indexOf(value) != -1
+                        //    return ["hello"].indexOf(value) != -1
                         //}
                     }
                 },

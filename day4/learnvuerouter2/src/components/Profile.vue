@@ -13,6 +13,9 @@ export default {
         return {
             msg: "profile"
         }
+    },
+    beforeRouteEnter(to, from, next) {
+        console.log("beforerote")
     }
 }
 </script>
